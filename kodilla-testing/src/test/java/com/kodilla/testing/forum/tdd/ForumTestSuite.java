@@ -28,17 +28,17 @@ public class ForumTestSuite {
         //When
         forumUser.addPost("mrsmith", "Hello everyone, this is my first contribution.");
         //Then
-        Assert.assertEquals(100, forumUser.getPostsQuantity());
+        Assert.assertEquals(1, forumUser.getPostsQuantity());
     }
     @Test
     public void testAddComment() {
         //Given
-        ForumUser forumUser = new ForumUser("nrsmith", "John Smith");
+        ForumUser forumUser = new ForumUser("mrsmith", "John Smith");
         ForumPost thePost = new ForumPost("Hello everyone, " + "this is my first contribution here!", "mrsmith");
         //When
         forumUser.addComment(thePost,"mrsmith", "Thank you for all good words!");
         //Then
-        Assert.assertEquals(100, forumUser.getCommentsQuantity());
+        Assert.assertEquals(1, forumUser.getCommentsQuantity());
     }
     @Test
     public void testGetPost() {
@@ -51,6 +51,5 @@ public class ForumTestSuite {
         retrievedPost = forumUser.getPost(0);
         //Then
         Assert.assertEquals(thePost, retrievedPost);
-
     }
 }
