@@ -29,13 +29,19 @@ public class Circle implements Shape {
     @Override
     public String getShapeName() {
         return name;
-
     }
 
     @Override
     public double getField() {
         return pi * radius * radius;
 
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "name='" + name + '\'' +
+                '}';
     }
 
     @Override

@@ -23,6 +23,7 @@ public class Square implements Shape {
     }
 
 
+
     @Override
     public String getShapeName() {
 
@@ -33,6 +34,13 @@ public class Square implements Shape {
     public double getField() {
 
         return sideA * 2;
+    }
+
+    @Override
+    public String toString() {
+        return "Square{" +
+                "name='" + name + '\'' +
+                '}';
     }
 
     @Override

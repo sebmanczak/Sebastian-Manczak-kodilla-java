@@ -39,6 +39,13 @@ public class Triangle implements Shape {
     }
 
     @Override
+    public String toString() {
+        return "Triangle{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Triangle)) return false;
