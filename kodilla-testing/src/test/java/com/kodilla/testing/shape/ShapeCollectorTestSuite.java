@@ -10,8 +10,8 @@ public class ShapeCollectorTestSuite {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector("Circle");
         //When
-        ShapeCollector.addFigure("circle");
+        shapeCollector.addFigure("circle");
         //Then
-        Assert.assertEquals(1, shapeCollector);
+        Assert.equals(circle, shapeCollector.get(0));
     }
 }
