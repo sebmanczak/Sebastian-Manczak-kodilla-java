@@ -15,4 +15,22 @@ public class ShapeCollectorTestSuite {
         //Then
         Assert.equals(circle, shapeCollector.get(0));
     }
+    @Test
+    public void testRemoveFugure() {
+        //Given
+        //When
+        //Then
+    }
+    @Test
+    public void testGetFigure() {
+        //Given
+        //When
+        //Then
+    }
+    @Test
+    public void testShowFugures() {
+        //Given
+        //When
+        //Then
+    }
 }
