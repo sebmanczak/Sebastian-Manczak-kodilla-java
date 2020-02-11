@@ -12,6 +12,6 @@ public class ShapeCollectorTestSuite {
         //When
         shapeCollector.addFigure("circle");
         //Then
-        Assert.equals(circle, shapeCollector.get(0));
+        Assert.equals(circle, shapeCollector.get(1));
     }
 }
