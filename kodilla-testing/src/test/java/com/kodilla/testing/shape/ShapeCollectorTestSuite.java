@@ -4,33 +4,60 @@ import com.kodilla.testing.shape.ShapeCollector;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class ShapeCollectorTestSuite {
 
     @Test
     public void testAddFigure() {
         //Given
-        ShapeCollector shapeCollector = new ShapeCollector("Circle", 5.70, 3.14);
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Shape circle = new Circle("Circle", 4.45, 3.14);
         //When
-        shapeCollector.addFigure("Circle");
+        shapeCollector.addFigure(circle);
+
         //Then
-        Assert.equals(circle, shapeCollector.get(0));
+        Assert.assertEquals(circle, shapeCollector.getFigure(0));
     }
     @Test
-    public void testRemoveFugure() {
+    public void testRemoveFigure() {
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Shape circle = new Circle("Circle", 4.45, 3.14);
+        shapeCollector.addFigure(circle);
         //When
+        shapeCollector.removeFigure(circle);
         //Then
+        Assert.assertEquals(0, shapeCollector.getFigures().size());
     }
     @Test
     public void testGetFigure() {
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Shape circle = new Circle("Circle", 4.45, 3.14);
+        Shape square = new Square("Square", 15.0);
+        shapeCollector.addFigure(circle);
+        shapeCollector.addFigure(square);
         //When
+        Shape firstFigure = shapeCollector.getFigure(0);
+        Shape secondFigure = shapeCollector.getFigure(1);
+
         //Then
+        Assert.assertEquals(circle, firstFigure);
+        Assert.assertEquals(square, secondFigure);
     }
     @Test
-    public void testShowFugures() {
+    public void testShowFigures() {
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Shape circle = new Circle("Circle", 4.45, 3.14);
+        Shape square = new Square("Square", 15.0);
+        Shape triangle = new Triangle("Triangle", 20.0, 10.0 );
+        shapeCollector.addFigure(circle);
+        shapeCollector.addFigure(square);
+        shapeCollector.addFigure(triangle);
         //When
+        shapeCollector.showFigures();
         //Then
     }
 }

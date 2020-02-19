@@ -15,8 +15,8 @@ public class ShapeCollector {
         figures.remove(shape);
     }
 
-    public void getFigure(int n) {
-        figures.get(n);
+    public Shape getFigure(int n) {
+        return figures.get(n);
     }
 
     public void showFigures() {
@@ -24,4 +24,9 @@ public class ShapeCollector {
             System.out.println(all);
         }
     }
+
+    public ArrayList<Shape> getFigures() {
+        return figures;
+    }
+
 }

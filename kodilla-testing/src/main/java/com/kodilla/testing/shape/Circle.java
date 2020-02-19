@@ -39,9 +39,7 @@ public class Circle implements Shape {
 
     @Override
     public String toString() {
-        return "Circle{" +
-                "name='" + name + '\'' +
-                '}';
+        return "The name of the figure is " + name + " and the size of the field is " + getField();
     }
 
     @Override

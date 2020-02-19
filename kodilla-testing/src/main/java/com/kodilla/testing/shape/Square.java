@@ -38,9 +38,7 @@ public class Square implements Shape {
 
     @Override
     public String toString() {
-        return "Square{" +
-                "name='" + name + '\'' +
-                '}';
+        return "The name of the figure is " + name + " and the size of the field is " + getField();
     }
 
     @Override

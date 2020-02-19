@@ -40,9 +40,7 @@ public class Triangle implements Shape {
 
     @Override
     public String toString() {
-        return "Triangle{" +
-                "name='" + name + '\'' +
-                '}';
+        return "The name is the figure is " + name + " and the size of the field is " + getField();
     }
 
     @Override
