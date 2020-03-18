@@ -18,14 +18,26 @@ public class WorldTestSuite {
     countries.add(new Country("Japan", new BigDecimal("80000000")));
     countries.add(new Country("Philippines", new BigDecimal("60000000")));
     countries.add(new Country("Mongolia", new BigDecimal("50000000")));
+    countries.add(new Country("Nepal", new BigDecimal("1000000")));
+    countries.add(new Country("South Korea", new BigDecimal("90000000")));
+
+    countries.add(new Country("Niger", new BigDecimal("20000000")));
+    countries.add(new Country("Sudan", new BigDecimal("45000000")));
+    countries.add(new Country("Angola", new BigDecimal("60000000")));
+    countries.add(new Country("Zambia", new BigDecimal("25000000")));
+    countries.add(new Country("Senegal", new BigDecimal("30000000")));
+    countries.add(new Country("Zimbabwe", new BigDecimal("80000000")));
+
 
     List<Continent> continents = new ArrayList<>();
 
     continents.add(new Continent("Asia", countries));
+    continents.add(new Continent("Africa", countries));
+
     World world = new World (continents);
     //When
     BigDecimal totalPeople = world.getPeopleQuantity();
     //THen
-    Assert.assertEquals(new BigDecimal("1690000000"), totalPeople);
+    Assert.assertEquals(new BigDecimal("4082000000"), totalPeople);
     }
 }
