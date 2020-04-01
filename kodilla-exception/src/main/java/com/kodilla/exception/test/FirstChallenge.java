@@ -14,11 +14,13 @@ public class FirstChallenge {
 
         try {
 
-            double result = firstChallenge.divide(3, 2);
+            double result = firstChallenge.divide(3, 0);
             System.out.println(result);
 
         } catch (ArithmeticException e) {
             System.out.println("Something went wrong! Error" + e);
+        } finally {
+            System.out.println("Someone was trying to do divide.");
         }
     }
 }
