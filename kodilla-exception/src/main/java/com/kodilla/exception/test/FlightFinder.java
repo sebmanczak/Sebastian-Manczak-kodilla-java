@@ -2,15 +2,6 @@ package com.kodilla.exception.test;
 import java.util.HashMap;
 
 public class FlightFinder {
-    public static void main (String[] args) {
-        Flight flight = new Flight("Dublin", "London");
-        FlightFinder flightFinder = new FlightFinder();
-        try {
-            flightFinder.findFlight(flight);
-        } catch (RouteNotFoundException e) {
-            System.out.println("There is no such flight.");
-        }
-    }
     public boolean findFlight(Flight flight) throws RouteNotFoundException {
         HashMap<String, Boolean> airports = new HashMap<>();
         airports.put("Warsaw", false);
@@ -24,5 +15,14 @@ public class FlightFinder {
             throw new RouteNotFoundException();
         }
         return arrivalAirport;
+    }
+    public static void main(String[] args) {
+        Flight flight = new Flight("Dublin", "London");
+        FlightFinder flightFinder = new FlightFinder();
+        try {
+            flightFinder.findFlight(flight);
+        } catch (RouteNotFoundException e) {
+            System.out.println("There is no such flight.");
+        }
     }
 }
