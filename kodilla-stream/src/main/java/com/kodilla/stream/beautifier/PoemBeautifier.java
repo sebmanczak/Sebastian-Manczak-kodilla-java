@@ -9,3 +9,12 @@ public class PoemBeautifier {
     }
 
 }
+
+//class App {
+//    public static void main(String[] args) {
+//
+//        PoemBeautifier poemBeautifier = new PoemBeautifier();
+//
+//        poemBeautifier.beautify("table", "AAA"()) -> ;
+//    }
+//}
