@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class MovieStore {
     public static Map<String, List<String>> getMovies() {
@@ -28,9 +30,14 @@ public class MovieStore {
 //        for (Map.Entry<String, List<String>> entry : booksTitlesWithTranslations.entrySet()) {
 //            System.out.println("The titles of the HashMap are: " + entry.getKey() + " " + entry.getValue() + " ! ");
 //        }
+        String titlesString = Stream.of(booksTitlesWithTranslations.values())
+                .map(oneLine -> new String(String.valueOf(oneLine)))
+                .collect(Collectors.joining(" ! ", " ", " "));
 
-        booksTitlesWithTranslations.values().stream()
-                .forEach(titles -> System.out.println(titles));
+        System.out.println(titlesString);
+
+//        booksTitlesWithTranslations.values().stream()
+//                .forEach(titles -> System.out.println(titles));
 
 
         return booksTitlesWithTranslations;
