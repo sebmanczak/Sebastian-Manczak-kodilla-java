@@ -31,7 +31,7 @@ public class MovieStore {
 //            System.out.println("The titles of the HashMap are: " + entry.getKey() + " " + entry.getValue() + " ! ");
 //        }
         String titlesString = Stream.of(booksTitlesWithTranslations.values())
-                .map(oneLine -> new String(String.valueOf(oneLine)))
+                .flatmap(oneLine -> new String(oneLine))
                 .collect(Collectors.joining(" ! ", " ", " "));
 
         System.out.println(titlesString);
