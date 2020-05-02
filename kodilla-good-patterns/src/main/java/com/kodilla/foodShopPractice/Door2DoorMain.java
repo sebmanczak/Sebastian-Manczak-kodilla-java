@@ -15,8 +15,8 @@ public class Door2DoorMain {
         OrderDto order = new OrderDto();
         System.out.println();
         order.add(product1, 10);
-        order.add(product2, 8);
-        order.add(product3, 20);
+        order.add(product2, 88);
+        order.add(product3, 40);
 
         orderProcessor.processOrder(order);
     }
