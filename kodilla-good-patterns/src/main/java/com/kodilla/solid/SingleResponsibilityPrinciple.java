@@ -1,4 +1,4 @@
-//package com.kodilla.good.patterns.solid;
+//package com.kodilla.solid;
 //
 //import java.time.LocalDate;
 //import java.time.LocalDateTime;

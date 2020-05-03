@@ -1,4 +1,4 @@
-//package com.kodilla.good.patterns.solid;
+//package com.kodilla.solid;
 //
 //public class RentalDto {
 //    public User user;

@@ -1,7 +1,5 @@
 package com.kodilla.foodShopPractice;
 
-import java.util.Map;
-
 public class OrderProcessor {
 
     public void processOrder(OrderDto orderDto) {
