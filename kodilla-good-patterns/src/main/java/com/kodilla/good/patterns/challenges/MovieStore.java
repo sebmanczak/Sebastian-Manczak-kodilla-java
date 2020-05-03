@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.*;
 import static java.util.stream.Collectors.joining;
 
 public class MovieStore {
@@ -30,15 +27,13 @@ public class MovieStore {
         booksTitlesWithTranslations.put("AV", avengersTranslations);
         booksTitlesWithTranslations.put("FL", flashTranslations);
 
-        booksTitlesWithTranslations.entrySet().stream()
-                .map(Map.Entry::getKey)
+
+        String displayInOneLine = booksTitlesWithTranslations.entrySet().stream()
+                .map(Map.Entry::getValue)
                 .map(Object::toString)
-                .collect(joining(" ! "))
-                .forEach(System.out::println);
+                .collect(joining(" ! "));
 
-        //System.out.println(booksTitlesWithTranslations.entrySet());
-       // booksTitlesWithTranslations.forEach((key, value) -> System.out.println("The titles of the HashMap are: " + value + " ! "));
-
+        System.out.println(displayInOneLine);
 
         return booksTitlesWithTranslations;
     }
