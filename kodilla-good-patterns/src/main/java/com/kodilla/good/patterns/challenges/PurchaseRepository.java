@@ -8,6 +8,4 @@ public class PurchaseRepository implements StockIndicator {
         System.out.println();
         System.out.println("New order. Authorisation to release the following: " + products );
     }
-
-    //zapisac
 }

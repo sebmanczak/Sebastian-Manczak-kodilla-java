@@ -37,13 +37,13 @@ public class ProductOrderService {
         ProductOrderService service = new ProductOrderService(emailService, purchaseServiceImpl, purchaseRepository);
         PurchaseRequest purchase1 = new PurchaseRequest();
         purchase1.setBuyer(buyer1);
-        purchase1.add(product1, 5);
+        purchase1.add(product1, 20);
         service.process(purchase1);
         System.out.println(purchase1);
 
         PurchaseRequest purchase2 = new PurchaseRequest();
         purchase2.setBuyer(buyer2);
-        purchase2.add(product2, 3);
+        purchase2.add(product2, 5);
         service.process(purchase2);
         System.out.println(purchase2);
         }

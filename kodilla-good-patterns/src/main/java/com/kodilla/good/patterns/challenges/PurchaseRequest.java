@@ -24,6 +24,6 @@ public class PurchaseRequest {
 
     @Override
     public String toString() {
-        return "\n test test ";
+        return "";
     }
 }
