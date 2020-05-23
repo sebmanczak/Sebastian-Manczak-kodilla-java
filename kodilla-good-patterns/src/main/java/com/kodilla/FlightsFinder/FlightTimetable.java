@@ -1,56 +1,55 @@
-//package com.kodilla.FlightsFinder;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//import java.util.stream.Stream;
-//
-//public class FlightTimetable {
-//    public static void main (String[] args) {
-//        Flight flight3002 = new Flight("London", "Dubai", 3002);
-//
-//        List<Flight> allFlightsFromWroclaw = new ArrayList<>();
-//
-//        allFlightsFromWroclaw.add(new Flight("Wroclaw", "London", 1001));
-//        allFlightsFromWroclaw.add(new Flight("Wroclaw", "Berlin", 1002));
-//        allFlightsFromWroclaw.add(new Flight("Wroclaw", "Paris", 1003));
-//        allFlightsFromWroclaw.add(new Flight("Wroclaw", "Madrid", 1004));
-//        allFlightsFromWroclaw.add(new Flight("Wroclaw", "Gdansk", 1005));
-//        allFlightsFromWroclaw.add(new Flight("Wroclaw", "New York", 1006));
-//
-//        List<Flight> allFlightsFromGdansk = new ArrayList<>();
-//
-//        allFlightsFromGdansk.add(new Flight("Gdansk", "London", 2001));
-//        allFlightsFromGdansk.add(new Flight("Gdansk", "Wroclaw", 2002));
-//        allFlightsFromGdansk.add(new Flight("Gdansk", "Paris", 2003));
-//        allFlightsFromGdansk.add(new Flight("Gdansk", "Barcelona", 2004));
-//        allFlightsFromGdansk.add(flight3002);
-//
-//        List<Flight> allFlightsFromLondon = new ArrayList<>();
-//
-//        allFlightsFromLondon.add(new Flight("London", "Rome", 3001));
-//        allFlightsFromLondon.add(new Flight("London", "Dubai", 3002));
-//        allFlightsFromLondon.add(new Flight("London", "Sydney", 3003));
-//        allFlightsFromLondon.add(new Flight("London", "Los Angeles", 3004));
-//        allFlightsFromLondon.add(new Flight("London", "Tokyo", 3005));
-//        allFlightsFromLondon.add(new Flight("London", "Manchester", 3006));
-//        allFlightsFromLondon.add(new Flight("London", "Liverpool", 3007));
-//        allFlightsFromLondon.add(new Flight("London", "Cairo", 3008));
-//
-////        System.out.println("There are: " + allFlightsFromGdansk.size() + " flights from Gdansk.");
-////
-////        for(int n=0; n < allFlightsFromGdansk.size(); n++) {
-////            System.out.println("Element " + n + " of flights from Gdansk is " + allFlightsFromGdansk.get(n));
-////        }
-////        System.out.println("Flight 3002 details: " + flight3002);
-////
-////        for(Flight aaa: allFlightsFromGdansk) {
-////            System.out.println(aaa);
-////        }
-////        System.out.println("Flight 3002 details: " + allFlightsFromGdansk.get(0));
-//
-//         List<Flight> f = allFlightsFromLondon.stream()
-//                .map(Flight::getArrivalAirport);
-//
-//        System.out.println(f);
-//    }
-//}
+package com.kodilla.FlightsFinder;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class FlightTimetable {
+
+    private List<Flight> allFlights = new ArrayList<>();
+
+    public FlightTimetable() {
+        allFlights.add(new Flight("Wroclaw", "London", 1001));
+        allFlights.add(new Flight("Wroclaw", "Berlin", 1002));
+        allFlights.add(new Flight("Wroclaw", "Paris", 1003));
+        allFlights.add(new Flight("Wroclaw", "Madrid", 1004));
+        allFlights.add(new Flight("Wroclaw", "Gdansk", 1005));
+        allFlights.add(new Flight("Wroclaw", "New York", 1006));
+        allFlights.add(new Flight("Gdansk", "London", 2001));
+        allFlights.add(new Flight("Gdansk", "Wroclaw", 2002));
+        allFlights.add(new Flight("Gdansk", "Paris", 2003));
+        allFlights.add(new Flight("Gdansk", "Barcelona", 2004));
+        allFlights.add(new Flight("London", "Rome", 3001));
+        allFlights.add(new Flight("London", "Dubai", 3002));
+        allFlights.add(new Flight("London", "Sydney", 3003));
+        allFlights.add(new Flight("London", "Los Angeles", 3004));
+        allFlights.add(new Flight("London", "Tokyo", 3005));
+        allFlights.add(new Flight("London", "Manchester", 3006));
+        allFlights.add(new Flight("London", "Liverpool", 3007));
+        allFlights.add(new Flight("London", "Cairo", 3008));
+    }
+
+public List<Flight> findFlightFrom(String departureAirport) {
+        return allFlights.stream()
+                .filter(e -> e.getDepartureAirport().equals(departureAirport))
+                .collect(Collectors.toList());
+}
+public List<Flight> findFlightTo(String arrivalAirport) {
+        return allFlights.stream()
+                .filter(e -> e.getArrivalAirport().equals(arrivalAirport))
+                .collect(Collectors.toList());
+}
+
+    public static void main (String[] args) {
+        FlightTimetable flightTimetable = new FlightTimetable();
+        List<Flight> result = flightTimetable.findFlightFrom("Gdansk");
+        System.out.println(result);
+
+        FlightTimetable flightTimetable2 = new FlightTimetable();
+        List<Flight> result2 = flightTimetable2.findFlightTo("London");
+        System.out.println(result2);
+    }
+}
+// loty z danego miasto i potem na kolekcjach dzialac
+// poszukac piersza list i dzialac na podstawie rezultatu z pierwszej listy
