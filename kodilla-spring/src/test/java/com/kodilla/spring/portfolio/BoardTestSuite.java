@@ -28,4 +28,5 @@ public class BoardTestSuite {
     }
 }
 //Dlaczego wypisaly sie wszystkie mozliwe zadania po wykomentowaniu @Scope("prototype")?
-//
+//Po wykomentowaniu @Scope("prototype") wyswietlily sie wszystkie zadania poniewaz
+// spring utworzyl beany sigletony czyli beany jednego typu
