@@ -24,6 +24,7 @@ public class FlightTimetable {
         allFlights.add(new Flight("London", "Dubai", 3002));
         allFlights.add(new Flight("London", "Sydney", 3003));
         allFlights.add(new Flight("London", "Los Angeles", 3004));
+        allFlights.add(new Flight("Sydney", "Tokyo", 30051));
         allFlights.add(new Flight("London", "Tokyo", 3005));
         allFlights.add(new Flight("London", "Manchester", 3006));
         allFlights.add(new Flight("London", "Liverpool", 3007));
@@ -49,7 +50,25 @@ public List<Flight> findFlightTo(String arrivalAirport) {
         FlightTimetable flightTimetable2 = new FlightTimetable();
         List<Flight> result2 = flightTimetable2.findFlightTo("London");
         System.out.println(result2);
+
+        // All flights from Wroclaw through London to Tokyo
+
+        FlightTimetable flightTimetable3 = new FlightTimetable();
+        List<Flight> result3 = flightTimetable3.findFlightTo("Tokyo");
+        System.out.println("All flights going to Tokyo are: " + result3);
+
+        List<Flight> result4 = flightTimetable3.findFlightFrom("Wroclaw");
+        System.out.println("All flights going from Wroclaw are: " + result4);
+
+        List<Flight> result5 = result3.stream()
+                .filter(e -> e.getDepartureAirport().equals("London"))
+                .collect(Collectors.toList());
+        List<Flight> result6 = result4.stream()
+                .filter(e -> e.getArrivalAirport().equals("London"))
+                .collect(Collectors.toList());
+        System.out.println(result6);
+        System.out.println(result5);
     }
 }
 // loty z danego miasto i potem na kolekcjach dzialac
-// poszukac piersza list i dzialac na podstawie rezultatu z pierwszej listy
+// poszukac piersza liste i dzialac na podstawie rezultatu z pierwszej listy
