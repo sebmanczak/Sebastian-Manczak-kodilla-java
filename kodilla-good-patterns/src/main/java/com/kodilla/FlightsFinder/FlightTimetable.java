@@ -1,6 +1,8 @@
 package com.kodilla.FlightsFinder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -41,33 +43,24 @@ public List<Flight> findFlightTo(String arrivalAirport) {
                 .filter(e -> e.getArrivalAirport().equals(arrivalAirport))
                 .collect(Collectors.toList());
 }
+public List<Flight> findConnectingFlight (String departureAirport, String transferAirport, String arrivalAirport) {
+    return Stream.concat(
+                findFlightFrom(departureAirport).stream().filter(e -> e.getArrivalAirport().equals(transferAirport)),
+                findFlightTo(arrivalAirport).stream().filter(e -> e.getDepartureAirport().equals(transferAirport)))
+            .collect(Collectors.toList());
+}
 
     public static void main (String[] args) {
         FlightTimetable flightTimetable = new FlightTimetable();
         List<Flight> result = flightTimetable.findFlightFrom("Gdansk");
         System.out.println(result);
 
-        FlightTimetable flightTimetable2 = new FlightTimetable();
-        List<Flight> result2 = flightTimetable2.findFlightTo("London");
+        List<Flight> result2 = flightTimetable.findFlightTo("London");
         System.out.println(result2);
 
         // All flights from Wroclaw through London to Tokyo
-
-        FlightTimetable flightTimetable3 = new FlightTimetable();
-        List<Flight> result3 = flightTimetable3.findFlightTo("Tokyo");
-        System.out.println("All flights going to Tokyo are: " + result3);
-
-        List<Flight> result4 = flightTimetable3.findFlightFrom("Wroclaw");
-        System.out.println("All flights going from Wroclaw are: " + result4);
-
-        List<Flight> result5 = result3.stream()
-                .filter(e -> e.getDepartureAirport().equals("London"))
-                .collect(Collectors.toList());
-        List<Flight> result6 = result4.stream()
-                .filter(e -> e.getArrivalAirport().equals("London"))
-                .collect(Collectors.toList());
-        System.out.println(result6);
-        System.out.println(result5);
+        List<Flight> result3 = flightTimetable.findConnectingFlight("Wroclaw", "London", "Tokyo");
+        System.out.println(result3);
     }
 }
 // loty z danego miasto i potem na kolekcjach dzialac
