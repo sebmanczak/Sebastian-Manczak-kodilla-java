@@ -7,7 +7,6 @@ public class OddNumbersExterminator {
 
         ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
 
-
         for (int i = 0; i < numbers.size(); i++){
             int number = numbers.get(i); //tworzymy zmienna number i przypisujemy do niej i-ty element z listy numbers
             if(number %2 == 0){
