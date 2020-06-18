@@ -37,6 +37,8 @@ public class UserTestSuite {
         sebastian.setChoosingStrategy(new TwitterPublisher());
         socialMediaChosenBySeb = sebastian.sharePost();
         System.out.println("Seb chose " + socialMediaChosenBySeb);
+
         //Then
+        Assert.assertEquals("[Twitter Publisher] " , socialMediaChosenBySeb);
     }
 }
