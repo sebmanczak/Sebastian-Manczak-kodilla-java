@@ -115,4 +115,20 @@ public class CalculateStatisticsTestSuite {
         Assert.assertEquals(32, statisticsProcessor.getPostsCount());
         Assert.assertEquals(40, statisticsProcessor.getCommentsCount());
     }
+    @Test
+    public void testCalculateAdvSettingsWhenUsersCount100() {
+        //Given
+        Statistics statisticsMock = mock(Statistics.class);
+        StatisticsProcessor statisticsProcessor = new StatisticsProcessor();
+        when(statisticsMock.usersNames()).thenReturn(generateListOfNUsers(100));
+        when(statisticsMock.postsCount()).thenReturn(32);
+        when(statisticsMock.commentsCount()).thenReturn(40);
+        //When
+        statisticsProcessor.calculateAdvStatistics(statisticsMock);
+        statisticsProcessor.showStatistics(statisticsMock);
+        //Then
+        Assert.assertEquals(100, statisticsProcessor.getUsersCount());
+        Assert.assertEquals(32, statisticsProcessor.getPostsCount());
+        Assert.assertEquals(40, statisticsProcessor.getCommentsCount());
+    }
 }

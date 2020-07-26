@@ -9,11 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
-    CompanyDao companyDao;
+    private CompanyDao companyDao;
 
     @Test
     public void testSaveManyToMany() {
@@ -57,4 +61,38 @@ public class CompanyDaoTestSuite {
             //do nothing
         }
     }
+    @Autowired
+    private EmployeeDao employeeDao;
+    @Transactional
+    @Test
+    public void testRetrieveEmployeeByLastname() {
+        //Given
+        Employee employee1 = new Employee("Alice", "Connor");
+        Employee employee2 = new Employee("John", "Rambo");
+        Employee employee3 = new Employee("John", "Connor");
+        Employee employee4 = new Employee("Sara", "Jansen");
+
+        List<Employee> employeeByLastname = new ArrayList();
+        employeeByLastname.add(employee1);
+        employeeByLastname.add(employee2);
+        employeeByLastname.add(employee3);
+        employeeByLastname.add(employee4);
+
+        employeeDao.saveAll(employeeByLastname);
+
+        //When
+        List<Employee> lastnameSearch = employeeDao.retrieveByLastname("Connor");
+
+        //Then
+
+        //CleanUp
+        try {
+            Assert.assertEquals(2, lastnameSearch.size());
+        } catch (Exception e) {
+            //do nothing
+        } finally {
+            companyDao.deleteAll();
+        }
+    }
+    // szukac poprzez 3 te same znaki
 }
